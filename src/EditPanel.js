@@ -34,8 +34,8 @@ export default class EditPanel extends Component {
     return (
       <div>
         <Row gutter={16}>
-          <Col span={12}>
-            <Card title="Container">
+          <Col span={8}>
+            <Card extra={<a href="#">More</a>} title="Container">
               <Form>
                 <FormItem {...formItemLayout} label="flex-direction">
                   <Select defaultValue="row" onChange={this.handleChange}>
@@ -74,10 +74,29 @@ export default class EditPanel extends Component {
               </Form>
             </Card>
           </Col>
-          <Col span={12}>
+          <Col span={8}>
             <Card title="Items">
-              <label>Div number : </label>
-              <InputNumber min={1} max={100} defaultValue={store.app.num} onChange={this.onChange} />
+              <Form>
+                <FormItem {...formItemLayout} label="number">
+                  <InputNumber min={1} 
+                    defaultValue={store.app.num} 
+                    onChange={this.onChange} />
+                </FormItem>
+                <FormItem {...formItemLayout} label="height">
+                  <InputNumber min={1}
+                    defaultValue={store.app.itemsStyle.height} 
+                    onChange={e => store.app.updateItemsStyle({ height: e })} />
+                </FormItem>
+                <FormItem {...formItemLayout} label="width">
+                  <InputNumber min={1}
+                    defaultValue={store.app.itemsStyle.width} 
+                    onChange={e => store.app.updateItemsStyle({ width: e })} />
+                </FormItem>
+              </Form>
+            </Card>
+          </Col>
+          <Col span={8}>
+            <Card title="Models">
             </Card>
           </Col>
         </Row>
@@ -89,7 +108,7 @@ export default class EditPanel extends Component {
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 6 },
+    sm: { span: 8 },
   },
   wrapperCol: {
     xs: { span: 24 },

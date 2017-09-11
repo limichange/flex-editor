@@ -13,9 +13,9 @@ export default class App {
     minHeight: '250px'
   }
   @observable itemsStyle = {
-    width: '100px',
-    height: '100px',
-    margin: '5px',
+    width: 150,
+    height: 150,
+    margin: 5,
     background: '#eee',
   }
 
@@ -29,5 +29,9 @@ export default class App {
 
   @action updateContainerStyle(style){
     Object.assign(this.containerStyle, style)
+  }
+  
+  @action updateItemsStyle(style){
+    Object.assign(this.itemsStyle, style)
   }
 }
