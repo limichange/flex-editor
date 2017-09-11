@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Layout, Card } from 'antd';
 import store from './store'
 import { observer } from 'mobx-react'
+import * as copy from 'copy-text-to-clipboard'
 
 @observer
 export default class PlayerPanel extends Component {
@@ -13,10 +14,12 @@ export default class PlayerPanel extends Component {
     for (let i = 0; i < store.app.num; i++) {
       c.push(
         <Card 
-          title={`div${i}`} 
-          extra={<a href="#">More</a>} 
+          onClick={e => copy('1')}
+          bodyStyle={{ padding: 2 }}
           key={i} 
           style={{...store.app.itemsStyle}}>
+          <div>div{i}</div>
+          <div>order: 0</div>
         </Card>
       )
     }
