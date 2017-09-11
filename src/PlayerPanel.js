@@ -12,14 +12,14 @@ export default class PlayerPanel extends Component {
 
     for (let i = 0; i < store.app.num; i++) {
       c.push(
-        <div key={i} style={style.div}>
+        <div key={i} style={{...store.app.itemsStyle}}>
           div {i}
         </div>
       )
     }
 
     return (
-      <div style={{ ...style.container, ...store.app.containerStyle}}>
+      <div style={{...store.app.containerStyle}}>
         { c }        
       </div>
     )
@@ -27,16 +27,4 @@ export default class PlayerPanel extends Component {
 }
 
 const style = {
-  div: {
-    borderRadius: '3px',
-    width: '100px',
-    height: '100px',
-    margin: '5px',
-    background: '#eee',
-  },
-  container: {
-    marginTop: '50px',
-    display: 'flex',
-    background: '#ccc',
-  }
 }

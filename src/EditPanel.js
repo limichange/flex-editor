@@ -15,6 +15,21 @@ export default class EditPanel extends Component {
       flexDirection: value
     })
   }
+  handleFlexWrapChange(value) {
+    store.app.updateContainerStyle({
+      flexWrap: value
+    })
+  }
+  handleJustifyContentChange(value) {
+    store.app.updateContainerStyle({
+      justifyContent: value
+    })
+  }
+  handleAlignItemsChange(value) {
+    store.app.updateContainerStyle({
+      alignItems: value
+    })
+  }
   render() {
     return (
       <div>
@@ -28,6 +43,32 @@ export default class EditPanel extends Component {
                     <Option value="row-reverse">row-reverse</Option>
                     <Option value="column">column</Option>
                     <Option value="column-reverse">column-reverse</Option>
+                  </Select>
+                </FormItem>
+                <FormItem {...formItemLayout} label="flex-wrap">
+                  <Select defaultValue="nowrap" onChange={this.handleFlexWrapChange}>
+                    <Option value="nowrap">nowrap</Option>
+                    <Option value="wrap">wrap</Option>
+                    <Option value="wrap-reverse">wrap-reverse</Option>
+                  </Select>
+                </FormItem>
+                <FormItem {...formItemLayout} label="justify-content">
+                  <Select defaultValue="flex-start" onChange={this.handleJustifyContentChange}>
+                    <Option value="flex-start">flex-start</Option>
+                    <Option value="flex-end">flex-end</Option>
+                    <Option value="center">center</Option>
+                    <Option value="space-between">space-between</Option>
+                    <Option value="space-around">space-around</Option>
+                    <Option value="space-evenly">space-evenly</Option>
+                  </Select>
+                </FormItem>
+                <FormItem {...formItemLayout} label="align-items">
+                  <Select defaultValue="flex-start" onChange={this.handleAlignItemsChange}>
+                    <Option value="flex-start">flex-start</Option>
+                    <Option value="flex-end">flex-end</Option>
+                    <Option value="center">center</Option>
+                    <Option value="baseline">baseline</Option>
+                    <Option value="stretch">stretch</Option>
                   </Select>
                 </FormItem>
               </Form>
