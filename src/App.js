@@ -22,7 +22,7 @@ class App extends Component {
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              ©2017 Created by Limichange
+              ©2017 Created by <a target="_blank" href="https://github.com/limichange">Limichange</a>
             </Footer>
           </Layout>
         </Layout>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Select, InputNumber, Card, Row, Col, Form } from 'antd';
+import { Layout, Select, InputNumber, Card, Row, Col, Form, Menu, Dropdown, Icon } from 'antd';
 import store from './store'
 import { observer } from 'mobx-react'
 const Option = Select.Option;
@@ -35,7 +35,13 @@ export default class EditPanel extends Component {
       <div>
         <Row gutter={16}>
           <Col span={8}>
-            <Card extra={<a href="#">More</a>} title="Container">
+            <Card extra={
+              <Dropdown overlay={menu}>
+                <a className="ant-dropdown-link" href="#">
+                  More <Icon type="down" />
+                </a>
+              </Dropdown>} 
+              title="Container">
               <Form>
                 <FormItem {...formItemLayout} label="flex-direction">
                   <Select defaultValue="row" onChange={this.handleChange}>
@@ -109,6 +115,13 @@ export default class EditPanel extends Component {
     )
   }
 }
+
+const menu = (
+  <Menu>
+    <Menu.Item>Copy css</Menu.Item>
+    <Menu.Item>Reset</Menu.Item>
+  </Menu>
+);
 
 const formItemLayout = {
   labelCol: {
