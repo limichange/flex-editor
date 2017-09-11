@@ -19,7 +19,7 @@ export default class PlayerPanel extends Component {
     }
 
     return (
-      <div style={style.container}>
+      <div style={{ ...style.container, ...store.app.containerStyle}}>
         { c }        
       </div>
     )
@@ -35,6 +35,7 @@ const style = {
     background: '#eee',
   },
   container: {
+    marginTop: '50px',
     display: 'flex',
     background: '#ccc',
   }
