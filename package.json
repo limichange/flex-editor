@@ -38,6 +38,7 @@
     "react-dev-utils": "^4.0.1",
     "react-dom": "^15.6.1",
     "style-loader": "0.18.2",
+    "styled-components": "^2.1.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
     "webpack": "3.5.1",
@@ -86,6 +87,9 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "transform-decorators-legacy"
     ]
   },
   "eslintConfig": {
