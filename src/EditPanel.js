@@ -92,6 +92,11 @@ export default class EditPanel extends Component {
                     defaultValue={store.app.itemsStyle.width} 
                     onChange={e => store.app.updateItemsStyle({ width: e })} />
                 </FormItem>
+                <FormItem {...formItemLayout} label="margin">
+                  <InputNumber min={0}
+                    defaultValue={store.app.itemsStyle.margin} 
+                    onChange={e => store.app.updateItemsStyle({ margin: e })} />
+                </FormItem>
               </Form>
             </Card>
           </Col>

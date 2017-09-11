@@ -10,13 +10,21 @@ export default class App {
     marginTop: '50px',
     display: 'flex',
     background: '#ddd',
-    minHeight: '250px'
+    minHeight: 350
   }
   @observable itemsStyle = {
     width: 150,
     height: 150,
     margin: 5,
-    background: '#eee',
+  }
+  @observable itmes = []
+
+  @action addItem (item) {
+    this.itmes.push(item)
+  }
+
+  @action removeItem(item) {
+    this.itmes.pop()
   }
 
   @action setNum(num) {

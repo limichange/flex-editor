@@ -1,6 +1,6 @@
 import { InputNumber } from 'antd';
 import React, { Component } from 'react';
-import { Layout } from 'antd';
+import { Layout, Card } from 'antd';
 import store from './store'
 import { observer } from 'mobx-react'
 
@@ -12,9 +12,12 @@ export default class PlayerPanel extends Component {
 
     for (let i = 0; i < store.app.num; i++) {
       c.push(
-        <div key={i} style={{...store.app.itemsStyle}}>
-          div {i}
-        </div>
+        <Card 
+          title={`div${i}`} 
+          extra={<a href="#">More</a>} 
+          key={i} 
+          style={{...store.app.itemsStyle}}>
+        </Card>
       )
     }
 
