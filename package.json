@@ -1,5 +1,5 @@
 {
-  "name": "flex-abc",
+  "name": "flex-editor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -55,7 +55,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "homepage": "https://limichange.github.io/flex-abc",
+  "homepage": "https://limichange.github.io/flex-editor",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
