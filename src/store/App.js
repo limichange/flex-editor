@@ -8,7 +8,6 @@ export default class App {
     this.addItem();
   }
 
-  @observable num = 3
   @observable containerStyle = {}
 
   @observable itemsStyle = {
@@ -16,7 +15,7 @@ export default class App {
     height: 150,
     margin: 5,
   }
-  @observable itmes = []
+  @observable items = []
 
   @action resetContainerStyle () {
     this.containerStyle = {
@@ -53,17 +52,22 @@ export default class App {
   }
 
   @action addItem (item) {
-    this.itmes.push(item || {
-
+    this.items.push(item || {
     })
   }
 
-  @action removeItem(item) {
-    this.itmes.pop()
+  @action removeItem() {
+    this.items.pop()
   }
 
   @action setNum(num) {
-    this.num = num
+    if (num > this.items.length) {
+      this.addItem()
+    }
+
+    if (num < this.items.length) {
+      this.removeItem()
+    }
   }
 
   @action setContainerStyle(containerStyle) {

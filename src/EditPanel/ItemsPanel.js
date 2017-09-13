@@ -17,7 +17,7 @@ export default class EditPanel extends Component {
         <Form>
           <FormItem {...formItemLayout} label="number">
             <InputNumber min={1}
-              defaultValue={store.app.num}
+              defaultValue={store.app.items.length}
               onChange={this.onChange} />
           </FormItem>
           <FormItem {...formItemLayout} label="height">

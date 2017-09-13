@@ -10,7 +10,7 @@ export default class PlayerPanel extends Component {
 
     let c = []
 
-    for (let i = 0; i < store.app.num; i++) {
+    for (let i = 0; i < store.app.items.length; i++) {
       c.push(
         <Card 
           bodyStyle={{ padding: 2 }}
