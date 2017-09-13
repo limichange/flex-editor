@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { Layout, Select, InputNumber, Input, Card, Row, Col, Form, Menu, Dropdown, Icon } from 'antd';
+import React, { Component } from 'react'
+import { Select, InputNumber, Input, Card, Form } from 'antd'
 import store from '../store'
 import { observer } from 'mobx-react'
-import copy from '../utils/copy'
 import formItemLayout from './formItemLayout'
 import PanelMenu from './PanelMenu'
 
-const Option = Select.Option;
-const FormItem = Form.Item;
+const Option = Select.Option
+const FormItem = Form.Item
 
 @observer
 export default class EditPanel extends Component {

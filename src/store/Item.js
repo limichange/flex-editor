@@ -1,9 +1,9 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx'
 import camelCase from '../utils/camelCase'
 
 export default class Item {
   constructor () {
-    this.resetStyle();
+    this.resetStyle()
   }
 
   @observable style = {}

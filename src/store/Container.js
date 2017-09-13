@@ -1,9 +1,9 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx'
 import camelCase from '../utils/camelCase'
 
 export default class Container {
   constructor () {
-    this.resetStyle();
+    this.resetStyle()
   }
 
   @observable style = {}
@@ -24,9 +24,9 @@ export default class Container {
   @action getStyleToCopyJS() {
     let style = Object.assign({}, this.style)
 
-    delete style.minHeight;
-    delete style.background;
-    delete style.marginTop;
+    delete style.minHeight
+    delete style.background
+    delete style.marginTop
 
     return JSON.stringify(style, null, 2)
   }

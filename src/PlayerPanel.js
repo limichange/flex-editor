@@ -1,6 +1,5 @@
-import { InputNumber } from 'antd';
 import React, { Component } from 'react';
-import { Layout, Card, Icon } from 'antd';
+import { Card, Icon } from 'antd';
 import store from './store'
 import { observer } from 'mobx-react'
 

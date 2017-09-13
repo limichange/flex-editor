@@ -7,4 +7,4 @@ export default {
     xs: { span: 24 },
     sm: { span: 14 },
   },
-};
+}

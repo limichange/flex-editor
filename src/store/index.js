@@ -1,7 +1,7 @@
-import { useStrict } from 'mobx';
-import App from './App';
+import { useStrict } from 'mobx'
+import App from './App'
 
-useStrict(true);
+useStrict(true)
 
 export default {
   app: new App(),

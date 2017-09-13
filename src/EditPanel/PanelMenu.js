@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import { message, Form, Menu, Dropdown, Icon } from 'antd';
+import React, { Component } from 'react'
+import { message, Menu, Dropdown, Icon } from 'antd'
 import copy from '../utils/copy'
 import { observer } from 'mobx-react'
 
 @observer
 export default class PanelMenu extends Component {
-  constructor (props) {
-    super(props)
-  }
   copyCSS() {
     message.success('copy css ok')
     copy(this.props.object.getStyleToCopyCSS())

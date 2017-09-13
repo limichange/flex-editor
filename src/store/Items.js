@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx'
 import Item from './Item'
 import camelCase from '../utils/camelCase'
 
@@ -73,6 +73,6 @@ export default class Items {
   }
 
   @action getSelectItem () {
-    return this.selectItem;
+    return this.selectItem
   }
 }

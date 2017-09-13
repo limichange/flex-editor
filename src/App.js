@@ -5,7 +5,7 @@ import EditPanel from './EditPanel/EditPanel'
 import PlayerPanel from './PlayerPanel'
 import WrappedIframe from './WrappedIframe'
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 const headerStyle = {
   background: '#fff', 
@@ -39,7 +39,7 @@ class App extends Component {
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              ©2017 Created by <a target="_blank" href="https://github.com/limichange">Limichange</a>
+              ©2017 Created by <a rel="noopener noreferrer" target="_blank" href="https://github.com/limichange">Limichange</a>
             </Footer>
           </Layout>
         </Layout>
