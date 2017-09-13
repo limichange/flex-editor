@@ -27,7 +27,6 @@ export default class PlayerPanel extends Component {
           style={{ ...store.app.items.style, ...item.style }}>
           <div style={this.cardStyle}>
             div{index}
-            <Icon type="setting" />
           </div>
         </Card>
       )
