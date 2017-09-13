@@ -30,6 +30,21 @@ export default class App {
     }
   }
 
+  @action getItemsStyleToCopyJS () {
+    return JSON.stringify(this.items, null, 2)
+  }
+
+  @action getItemsStyleToCopyCSS () {
+    var hyphenateRE = /([^-])([A-Z])/g;
+    
+    return this
+      .getItemsStyleToCopyJS()
+      .replace(/"/g, "")
+      .replace(hyphenateRE, '$1-$2')
+      .replace(hyphenateRE, '$1-$2')
+      .toLowerCase()
+  }
+
   @action getContainerStyleToCopyJS () {
     let style = Object.assign({}, this.containerStyle)
 
@@ -53,6 +68,11 @@ export default class App {
 
   @action addItem (item) {
     this.items.push(item || {
+      order: 0,
+      flexGrow: 1,
+      flexShrink: 1,
+      flexBasis: 'auto',
+      alignSelf: 'flex-start'
     })
   }
 

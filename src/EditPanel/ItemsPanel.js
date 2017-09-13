@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Layout, Select, InputNumber, Card, Row, Col, Form, Menu, Dropdown, Icon } from 'antd';
 import store from '../store'
 import { observer } from 'mobx-react'
+import copy from '../utils/copy'
+
 const Option = Select.Option;
 const FormItem = Form.Item;
 
@@ -13,7 +15,13 @@ export default class EditPanel extends Component {
 
   render() {
     return (
-      <Card title="Items">
+      <Card extra={
+        <Dropdown overlay={menu}>
+          <a className="ant-dropdown-link" href="#">
+            More <Icon type="down" />
+          </a>
+        </Dropdown>}
+        title="Items">
         <Form>
           <FormItem {...formItemLayout} label="number">
             <InputNumber min={1}
@@ -41,10 +49,25 @@ export default class EditPanel extends Component {
   }
 }
 
+function copyCSS() {
+  copy(store.app.getItemsStyleToCopyCSS())
+}
+
+function copyJS() {
+  copy(store.app.getItemsStyleToCopyJS())
+}
+
 const menu = (
   <Menu>
-    <Menu.Item>Copy css</Menu.Item>
-    <Menu.Item>Reset</Menu.Item>
+    <Menu.Item>
+      <div onClick={copyCSS}>Copy CSS</div>
+    </Menu.Item>
+    <Menu.Item>
+      <div onClick={copyJS}>Copy JS</div>
+    </Menu.Item>
+    <Menu.Item>
+      <div onClick={e => { store.app.resetContainerStyle() }}>Reset</div>
+    </Menu.Item>
   </Menu>
 );
 

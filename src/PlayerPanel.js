@@ -1,11 +1,20 @@
 import { InputNumber } from 'antd';
 import React, { Component } from 'react';
-import { Layout, Card } from 'antd';
+import { Layout, Card, Icon } from 'antd';
 import store from './store'
 import { observer } from 'mobx-react'
 
 @observer
 export default class PlayerPanel extends Component {
+  cardStyle = {
+    fontSize: 24,
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer'
+  }
+
   render() {
 
     let c = []
@@ -13,10 +22,14 @@ export default class PlayerPanel extends Component {
     for (let i = 0; i < store.app.items.length; i++) {
       c.push(
         <Card 
-          bodyStyle={{ padding: 2 }}
           key={i} 
+          onClick={e => alert(1)}
+          bodyStyle={{ height: '100%' }}
           style={{...store.app.itemsStyle}}>
-          <div>div{i}</div>
+          <div style={this.cardStyle}>
+            div{i} 
+            <Icon type="setting" />
+          </div>
         </Card>
       )
     }
@@ -27,7 +40,4 @@ export default class PlayerPanel extends Component {
       </div>
     )
   }
-}
-
-const style = {
 }
