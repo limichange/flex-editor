@@ -1,6 +1,7 @@
 import { observable, action, computed } from 'mobx';
 import Container from './Container'
 import Items from './Items'
+import camelCase from '../utils/camelCase'
 
 export default class App { 
   constructor () {
@@ -37,14 +38,7 @@ export default class App {
   }
 
   @action getItemsStyleToCopyCSS () {
-    var hyphenateRE = /([^-])([A-Z])/g;
-    
-    return this
-      .getItemsStyleToCopyJS()
-      .replace(/"/g, "")
-      .replace(hyphenateRE, '$1-$2')
-      .replace(hyphenateRE, '$1-$2')
-      .toLowerCase()
+    return camelCase(this.getItemsStyleToCopyJS())
   }
 
   @action getContainerStyleToCopyJS () {
@@ -58,14 +52,7 @@ export default class App {
   }
 
   @action getContainerStyleToCopyCSS () {
-    var hyphenateRE = /([^-])([A-Z])/g;
-
-    return this
-      .getContainerStyleToCopyJS()
-      .replace(/"/g, "")
-      .replace(hyphenateRE, '$1-$2')
-      .replace(hyphenateRE, '$1-$2')
-      .toLowerCase()
+    return camelCase(this.getContainerStyleToCopyJS())
   }
 
   @action addItem (item) {
