@@ -13,4 +13,4 @@ Simply flex css editor, created by react & mobx.
 
 ## Author
 
-Limichange
+Limichange, Released under the MIT License.
