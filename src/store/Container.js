@@ -2,9 +2,13 @@ import { observable, action, computed } from 'mobx';
 import camelCase from '../utils/camelCase'
 
 export default class Container {
+  constructor () {
+    this.resetStyle();
+  }
+
   @observable style = {}
 
-  @action resetContainerStyle() {
+  @action resetStyle() {
     this.style = {
       flexDirection: 'row',
       flexWrap: 'nowrap',

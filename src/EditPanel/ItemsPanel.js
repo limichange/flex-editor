@@ -10,7 +10,7 @@ const FormItem = Form.Item;
 @observer
 export default class EditPanel extends Component {
   onChange(e) {
-    store.app.setNum(e)
+    store.app.items.setNum(e)
   }
 
   render() {
@@ -25,23 +25,23 @@ export default class EditPanel extends Component {
         <Form>
           <FormItem {...formItemLayout} label="number">
             <InputNumber min={1}
-              defaultValue={store.app.items.length}
+              defaultValue={store.app.items.getAll().length}
               onChange={this.onChange} />
           </FormItem>
           <FormItem {...formItemLayout} label="height">
             <InputNumber min={1}
-              defaultValue={store.app.itemsStyle.height}
-              onChange={e => store.app.updateItemsStyle({ height: e })} />
+              defaultValue={store.app.items.style.height}
+              onChange={e => store.app.items.updateStyle({ height: e })} />
           </FormItem>
           <FormItem {...formItemLayout} label="width">
             <InputNumber min={1}
-              defaultValue={store.app.itemsStyle.width}
-              onChange={e => store.app.updateItemsStyle({ width: e })} />
+              defaultValue={store.app.items.style.width}
+              onChange={e => store.app.items.updateStyle({ width: e })} />
           </FormItem>
           <FormItem {...formItemLayout} label="margin">
             <InputNumber min={0}
-              defaultValue={store.app.itemsStyle.margin}
-              onChange={e => store.app.updateItemsStyle({ margin: e })} />
+              defaultValue={store.app.items.style.margin}
+              onChange={e => store.app.items.updateStyle({ margin: e })} />
           </FormItem>
         </Form>
       </Card>
@@ -50,11 +50,11 @@ export default class EditPanel extends Component {
 }
 
 function copyCSS() {
-  copy(store.app.getItemsStyleToCopyCSS())
+  copy(store.app.items.getStyleToCopyCSS())
 }
 
 function copyJS() {
-  copy(store.app.getItemsStyleToCopyJS())
+  copy(store.app.items.getStyleToCopyJS())
 }
 
 const menu = (
@@ -66,7 +66,7 @@ const menu = (
       <div onClick={copyJS}>Copy JS</div>
     </Menu.Item>
     <Menu.Item>
-      <div onClick={e => { store.app.resetContainerStyle() }}>Reset</div>
+      <div onClick={e => { store.app.items.resetStyle() }}>Reset</div>
     </Menu.Item>
   </Menu>
 );
