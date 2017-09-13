@@ -1,4 +1,5 @@
 import { observable, action, computed } from 'mobx';
+import camelCase from '../utils/camelCase'
 
 export default class Item {
   constructor () {
@@ -6,14 +7,36 @@ export default class Item {
   }
 
   @observable style = {}
+  @observable id = 0
+
+  @action setId (id) {
+    this.id = id
+  } 
+
+  @action getStyleToCopyJS() {
+    let style = Object.assign({}, this.style)
+    return JSON.stringify(style, null, 2)
+  }
+
+  @action getStyleToCopyCSS() {
+    return camelCase(this.getStyleToCopyJS())
+  }
+
+  @action setStyle(style) {
+    this.style = style
+  }
+
+  @action updateStyle(style) {
+    Object.assign(this.style, style)
+  }
 
   @action resetStyle () {
     this.style = {
       order: 0,
-      flexGrow: 1,
+      flexGrow: 0,
       flexShrink: 1,
       flexBasis: 'auto',
-      alignSelf: 'flex-start'
+      alignSelf: 'auto'
     }
   }
 }

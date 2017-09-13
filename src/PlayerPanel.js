@@ -19,20 +19,20 @@ export default class PlayerPanel extends Component {
 
     let c = []
 
-    for (let i = 0; i < store.app.items.getAll().length; i++) {
+    store.app.items.getAll().forEach((item, index) => {
       c.push(
-        <Card 
-          key={i} 
-          onClick={e => alert(1)}
+        <Card
+          key={index}
+          onClick={e => store.app.items.select(item)}
           bodyStyle={{ height: '100%' }}
-          style={{...store.app.items.style}}>
+          style={{ ...store.app.items.style, ...item.style }}>
           <div style={this.cardStyle}>
-            div{i} 
+            div{index}
             <Icon type="setting" />
           </div>
         </Card>
       )
-    }
+    })
 
     return (
       <div style={{...store.app.container.style}}>

@@ -13,6 +13,7 @@ export default class EditPanel extends Component {
     return (
       <Card>
         <Form>
+          { store.app.items.selectItem.id }
         </Form>
       </Card>
     )

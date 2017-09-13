@@ -12,9 +12,10 @@ export default class Items {
 
   @observable _items = []
   @observable style = {}
+  @observable selectItem = {}
 
-  @action select () {
-    
+  @action select (item) {
+    this.selectItem = item
   }
 
   @action resetStyle () {
@@ -25,14 +26,10 @@ export default class Items {
     }
   }
 
-  @action addItem(item) {
-    this._items.push(item || {
-      order: 0,
-      flexGrow: 1,
-      flexShrink: 1,
-      flexBasis: 'auto',
-      alignSelf: 'flex-start'
-    })
+  @action addItem() {
+    let newItem = new Item()
+    newItem.setId(this._items.length)
+    this._items.push(newItem)
   }
 
   @action removeItem() {
