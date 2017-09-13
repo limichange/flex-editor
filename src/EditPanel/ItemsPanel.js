@@ -3,6 +3,8 @@ import { Layout, Select, InputNumber, Card, Row, Col, Form, Menu, Dropdown, Icon
 import store from '../store'
 import { observer } from 'mobx-react'
 import copy from '../utils/copy'
+import formItemLayout from './formItemLayout'
+import PanelMenu from './PanelMenu'
 
 const Option = Select.Option;
 const FormItem = Form.Item;
@@ -15,12 +17,7 @@ export default class EditPanel extends Component {
 
   render() {
     return (
-      <Card extra={
-        <Dropdown overlay={menu}>
-          <a className="ant-dropdown-link" href="#">
-            More <Icon type="down" />
-          </a>
-        </Dropdown>}
+      <Card extra={<PanelMenu object={store.app.items} />}
         title="Items">
         <Form>
           <FormItem {...formItemLayout} label="number">
@@ -48,36 +45,3 @@ export default class EditPanel extends Component {
     )
   }
 }
-
-function copyCSS() {
-  copy(store.app.items.getStyleToCopyCSS())
-}
-
-function copyJS() {
-  copy(store.app.items.getStyleToCopyJS())
-}
-
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <div onClick={copyCSS}>Copy CSS</div>
-    </Menu.Item>
-    <Menu.Item>
-      <div onClick={copyJS}>Copy JS</div>
-    </Menu.Item>
-    <Menu.Item>
-      <div onClick={e => { store.app.items.resetStyle() }}>Reset</div>
-    </Menu.Item>
-  </Menu>
-);
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
-};

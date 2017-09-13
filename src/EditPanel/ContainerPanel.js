@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Layout, Select, InputNumber, Card, Row, Col, Form, Menu, Dropdown, Icon } from 'antd';
+import { message, Layout, Select, InputNumber, Card, Row, Col, Form, Menu, Dropdown, Icon } from 'antd';
 import store from '../store'
 import { observer } from 'mobx-react'
 import copy from '../utils/copy'
+import formItemLayout from './formItemLayout'
+import PanelMenu from './PanelMenu'
 
 const Option = Select.Option;
 const FormItem = Form.Item;
@@ -31,12 +33,7 @@ export default class EditPanel extends Component {
   }
   render() {
     return (
-      <Card extra={
-        <Dropdown overlay={menu}>
-          <a className="ant-dropdown-link" href="#">
-            More <Icon type="down" />
-          </a>
-        </Dropdown>}
+      <Card extra={<PanelMenu object={store.app.container} />}
         title="Container">
         <Form>
           <FormItem {...formItemLayout} label="flex-direction">
@@ -78,36 +75,3 @@ export default class EditPanel extends Component {
     )
   }
 }
-
-function copyCSS () {
-  copy(store.app.container.getStyleToCopyCSS())
-}
-
-function copyJS() {
-  copy(store.app.container.getStyleToCopyJS())
-}
-
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <div onClick={copyCSS}>Copy CSS</div>
-    </Menu.Item>
-    <Menu.Item>
-      <div onClick={copyJS}>Copy JS</div>
-    </Menu.Item>
-    <Menu.Item>
-      <div onClick={e => { store.app.resetContainerStyle() }}>Reset</div>
-    </Menu.Item>
-  </Menu>
-);
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
-};

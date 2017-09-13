@@ -44,6 +44,10 @@ export default class Items {
     if (num < this._items.length) {
       this.removeItem()
     }
+
+    if (num === this.selectItem.id) {
+      this.selectItem = {}
+    }
   }
 
   @action updateStyle(style) {
@@ -55,10 +59,10 @@ export default class Items {
   }
 
   @action getStyleToCopyJS() {
-    return JSON.stringify(this._items, null, 2)
+    return JSON.stringify(this._items.map(item => item.style), null, 2)
   }
 
   @action getStyleToCopyCSS() {
-    return camelCase(this.getItemsStyleToCopyJS())
+    return camelCase(this.getStyleToCopyJS())
   }
 }
