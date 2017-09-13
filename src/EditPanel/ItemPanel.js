@@ -57,33 +57,13 @@ export default class EditPanel extends Component {
       )
     }
 
+    const extra = <PanelMenu object={store.app.items.getSelectItem()} />
+
     return (
-      <Card extra={<PanelMenu object={store.app.items.selectItem} />}
+      <Card extra={extra}
         title={title}>
         { content }
       </Card>
     )
   }
 }
-
-function copyCSS() {
-  copy(store.app.items.selectItem.getStyleToCopyCSS())
-}
-
-function copyJS() {
-  copy(store.app.items.selectItem.getStyleToCopyJS())
-}
-
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <div onClick={copyCSS}>Copy CSS</div>
-    </Menu.Item>
-    <Menu.Item>
-      <div onClick={copyJS}>Copy JS</div>
-    </Menu.Item>
-    <Menu.Item>
-      <div onClick={e => { store.app.items.selectItem.resetStyle() }}>Reset</div>
-    </Menu.Item>
-  </Menu>
-);

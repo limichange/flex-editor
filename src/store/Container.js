@@ -32,7 +32,7 @@ export default class Container {
   }
 
   @action getStyleToCopyCSS() {
-    return camelCase(this.getStyleToCopyJS())
+    return camelCase(`.container ` + this.getStyleToCopyJS())
   }
 
   @action setStyle(style) {

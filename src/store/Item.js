@@ -13,13 +13,14 @@ export default class Item {
     this.id = id
   } 
 
+  @action getStyleToCopyCSS() {
+    let style = Object.assign({}, this.style)
+    return camelCase(`.div${this.id} ` + JSON.stringify(style, null, 2))
+  }
+
   @action getStyleToCopyJS() {
     let style = Object.assign({}, this.style)
     return JSON.stringify(style, null, 2)
-  }
-
-  @action getStyleToCopyCSS() {
-    return camelCase(this.getStyleToCopyJS())
   }
 
   @action setStyle(style) {

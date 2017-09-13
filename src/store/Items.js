@@ -63,6 +63,16 @@ export default class Items {
   }
 
   @action getStyleToCopyCSS() {
-    return camelCase(this.getStyleToCopyJS())
+    let styles = ''
+    
+    this._items.forEach(item => {
+      styles += item.getStyleToCopyCSS() + '\n'
+    })
+
+    return camelCase(styles)
+  }
+
+  @action getSelectItem () {
+    return this.selectItem;
   }
 }

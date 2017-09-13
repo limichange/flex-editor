@@ -3,8 +3,24 @@ import { Layout } from 'antd';
 import './App.css';
 import EditPanel from './EditPanel/EditPanel'
 import PlayerPanel from './PlayerPanel'
+import WrappedIframe from './WrappedIframe'
 
 const { Header, Footer, Sider, Content } = Layout;
+
+const headerStyle = {
+  background: '#fff', 
+  padding: 0,
+  flexDirection: "row",
+  flexWrap: "nowrap",
+  justifyContent: "space-between",
+  alignItems: "center",
+  display: "flex"
+}
+
+const titleStyle = {
+  fontSize: 24,
+  marginLeft: 40
+}
 
 class App extends Component {
   render() {
@@ -12,9 +28,9 @@ class App extends Component {
       <div className="App">
         <Layout>
           <Layout>
-            <Header style={{ background: '#fff', padding: 0 }}>
-              Flex css editor
-              <iframe src="https://ghbtns.com/github-btn.html?user=limichange&repo=flex-abc&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>            
+            <Header style={headerStyle}>
+              <div style={titleStyle}>Flex css editor</div>
+              <WrappedIframe src="https://ghbtns.com/github-btn.html?user=limichange&repo=flex-abc&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" />
             </Header>
             <Content style={{ margin: '24px 16px 0' }}>
               <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
