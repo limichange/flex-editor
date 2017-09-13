@@ -1,4 +1,6 @@
 import { observable, action, computed } from 'mobx';
+import Container from './Container'
+import Items from './Items'
 
 export default class App { 
   constructor () {

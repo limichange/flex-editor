@@ -4,6 +4,7 @@ import store from '../store'
 import { observer } from 'mobx-react'
 import ContainerPanel from './ContainerPanel'
 import ItemsPanel from './ItemsPanel'
+import ItemPanel from './ItemPanel'
 const Option = Select.Option;
 const FormItem = Form.Item;
 
@@ -11,20 +12,17 @@ const FormItem = Form.Item;
 export default class EditPanel extends Component {
   render() {
     return (
-      <div>
-        <Row gutter={16}>
-          <Col span={8}>
-            <ContainerPanel />
-          </Col>
-          <Col span={8}>
-            <ItemsPanel />
-          </Col>
-          <Col span={8}>
-            <Card title="Models">
-            </Card>
-          </Col>
-        </Row>
-      </div>
+      <Row gutter={16}>
+        <Col span={8}>
+          <ContainerPanel />
+        </Col>
+        <Col span={8}>
+          <ItemsPanel />
+        </Col>
+        <Col span={8}>
+          <ItemPanel />
+        </Col>
+      </Row>
     )
   }
 }
