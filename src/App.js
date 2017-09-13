@@ -29,7 +29,7 @@ class App extends Component {
         <Layout>
           <Layout>
             <Header style={headerStyle}>
-              <div style={titleStyle}>Flex css editor</div>
+              <div style={titleStyle}>Flex Editor</div>
               <WrappedIframe src="https://ghbtns.com/github-btn.html?user=limichange&repo=flex-abc&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" />
             </Header>
             <Content style={{ margin: '24px 16px 0' }}>
