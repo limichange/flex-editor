@@ -2,6 +2,7 @@ import { observable, action, computed } from 'mobx';
 
 export default class App { 
   constructor () {
+    this.resetContainerStyle()
     this.addItem();
     this.addItem();
     this.addItem();
@@ -18,12 +19,26 @@ export default class App {
     background: '#ddd',
     minHeight: 350
   }
+
   @observable itemsStyle = {
     width: 150,
     height: 150,
     margin: 5,
   }
   @observable itmes = []
+
+  @action resetContainerStyle () {
+    Object.assign(this.containerStyle, {
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      marginTop: '30px',
+      display: 'flex',
+      background: '#ddd',
+      minHeight: 350
+    })
+  }
 
   @action addItem (item) {
     this.itmes.push(item || {

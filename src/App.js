@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import './App.css';
-import EditPanel from './EditPanel'
+import EditPanel from './EditPanel/EditPanel'
 import PlayerPanel from './PlayerPanel'
 
 const { Header, Footer, Sider, Content } = Layout;
