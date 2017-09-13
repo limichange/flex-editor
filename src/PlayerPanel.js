@@ -17,7 +17,6 @@ export default class PlayerPanel extends Component {
           key={i} 
           style={{...store.app.itemsStyle}}>
           <div>div{i}</div>
-          <div>order: 0</div>
         </Card>
       )
     }

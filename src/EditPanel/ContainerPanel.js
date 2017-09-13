@@ -2,13 +2,33 @@ import React, { Component } from 'react';
 import { Layout, Select, InputNumber, Card, Row, Col, Form, Menu, Dropdown, Icon } from 'antd';
 import store from '../store'
 import { observer } from 'mobx-react'
-import * as copy from 'copy-text-to-clipboard'
+import copy from '../utils/copy'
 
 const Option = Select.Option;
 const FormItem = Form.Item;
 
 @observer
 export default class EditPanel extends Component {
+  handleFlexWrapChange(value) {
+    store.app.updateContainerStyle({
+      flexWrap: value
+    })
+  }
+  handleChange(value) {
+    store.app.updateContainerStyle({
+      flexDirection: value
+    })
+  }
+  handleJustifyContentChange(value) {
+    store.app.updateContainerStyle({
+      justifyContent: value
+    })
+  }
+  handleAlignItemsChange(value) {
+    store.app.updateContainerStyle({
+      alignItems: value
+    })
+  }
   render() {
     return (
       <Card extra={
@@ -60,16 +80,23 @@ export default class EditPanel extends Component {
 }
 
 function copyCSS () {
-  copy(JSON.stringify(store.app.containerStyle))
+  copy(store.app.getContainerStyleToCopyCSS())
+}
+
+function copyJS() {
+  copy(store.app.getContainerStyleToCopyJS())
 }
 
 const menu = (
   <Menu>
     <Menu.Item>
-      <div onClick={copyCSS}>Copy css</div>
+      <div onClick={copyCSS}>Copy CSS</div>
     </Menu.Item>
     <Menu.Item>
-      <div onClick={store.app.resetContainerStyle}>Reset</div>
+      <div onClick={copyJS}>Copy JS</div>
+    </Menu.Item>
+    <Menu.Item>
+      <div onClick={e => { store.app.resetContainerStyle() }}>Reset</div>
     </Menu.Item>
   </Menu>
 );

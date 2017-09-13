@@ -9,29 +9,6 @@ const FormItem = Form.Item;
 
 @observer
 export default class EditPanel extends Component {
-  onChange(e) {
-    store.app.setNum(e)
-  }
-  handleChange(value) {
-    store.app.updateContainerStyle({
-      flexDirection: value
-    })
-  }
-  handleFlexWrapChange(value) {
-    store.app.updateContainerStyle({
-      flexWrap: value
-    })
-  }
-  handleJustifyContentChange(value) {
-    store.app.updateContainerStyle({
-      justifyContent: value
-    })
-  }
-  handleAlignItemsChange(value) {
-    store.app.updateContainerStyle({
-      alignItems: value
-    })
-  }
   render() {
     return (
       <div>

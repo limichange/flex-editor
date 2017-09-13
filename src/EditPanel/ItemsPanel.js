@@ -7,6 +7,10 @@ const FormItem = Form.Item;
 
 @observer
 export default class EditPanel extends Component {
+  onChange(e) {
+    store.app.setNum(e)
+  }
+
   render() {
     return (
       <Card title="Items">
