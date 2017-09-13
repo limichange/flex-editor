@@ -10,22 +10,22 @@ const FormItem = Form.Item;
 @observer
 export default class EditPanel extends Component {
   handleFlexWrapChange(value) {
-    store.app.updateContainerStyle({
+    store.app.container.updateStyle({
       flexWrap: value
     })
   }
   handleChange(value) {
-    store.app.updateContainerStyle({
+    store.app.container.updateStyle({
       flexDirection: value
     })
   }
   handleJustifyContentChange(value) {
-    store.app.updateContainerStyle({
+    store.app.container.updateStyle({
       justifyContent: value
     })
   }
   handleAlignItemsChange(value) {
-    store.app.updateContainerStyle({
+    store.app.container.updateStyle({
       alignItems: value
     })
   }
@@ -80,11 +80,11 @@ export default class EditPanel extends Component {
 }
 
 function copyCSS () {
-  copy(store.app.getContainerStyleToCopyCSS())
+  copy(store.app.container.getStyleToCopyCSS())
 }
 
 function copyJS() {
-  copy(store.app.getContainerStyleToCopyJS())
+  copy(store.app.container.getStyleToCopyJS())
 }
 
 const menu = (

@@ -35,7 +35,7 @@ export default class PlayerPanel extends Component {
     }
 
     return (
-      <div style={{...store.app.containerStyle}}>
+      <div style={{...store.app.container.style}}>
         { c }        
       </div>
     )

@@ -18,7 +18,7 @@ export default class Container {
   }
 
   @action getStyleToCopyJS() {
-    let style = Object.assign({}, this.Style)
+    let style = Object.assign({}, this.style)
 
     delete style.minHeight;
     delete style.background;
@@ -29,5 +29,13 @@ export default class Container {
 
   @action getStyleToCopyCSS() {
     return camelCase(this.getStyleToCopyJS())
+  }
+
+  @action setStyle(style) {
+    this.style = style
+  }
+
+  @action updateStyle(style) {
+    Object.assign(this.style, style)
   }
 }
