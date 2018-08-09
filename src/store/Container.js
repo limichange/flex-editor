@@ -2,7 +2,7 @@ import { observable, action } from 'mobx'
 import camelCase from '../utils/camelCase'
 
 export default class Container {
-  constructor () {
+  constructor() {
     this.resetStyle()
   }
 
@@ -22,7 +22,7 @@ export default class Container {
   }
 
   @action getStyleToCopyJS() {
-    let style = Object.assign({}, this.style)
+    const style = Object.assign({}, this.style)
 
     delete style.minHeight
     delete style.background
@@ -32,7 +32,15 @@ export default class Container {
   }
 
   @action getStyleToCopyCSS() {
-    return camelCase(`.container ` + this.getStyleToCopyJS())
+    const style = Object.assign({}, this.style)
+    let retCSS = '.container {\n'
+    Object.keys(style)
+      .forEach(key => {
+        const val = style[key]
+        retCSS += `  ${camelCase(key)}: ${val};\n`
+      })
+    retCSS += '}\n'
+    return retCSS
   }
 
   @action setStyle(style) {

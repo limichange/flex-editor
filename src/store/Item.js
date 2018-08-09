@@ -2,20 +2,27 @@ import { observable, action } from 'mobx'
 import camelCase from '../utils/camelCase'
 
 export default class Item {
-  constructor () {
+  constructor() {
     this.resetStyle()
   }
 
   @observable style = {}
   @observable id = 0
 
-  @action setId (id) {
+  @action setId(id) {
     this.id = id
-  } 
+  }
 
   @action getStyleToCopyCSS() {
-    let style = Object.assign({}, this.style)
-    return camelCase(`.div${this.id} ` + JSON.stringify(style, null, 2))
+    const style = Object.assign({}, this.style)
+    let retCSS = `.div${this.id} {\n`
+    Object.keys(style)
+      .forEach(key => {
+        const val = style[key]
+        retCSS += `  ${camelCase(key)}: ${val};\n`
+      })
+    retCSS += '}\n'
+    return retCSS
   }
 
   @action getStyleToCopyJS() {
@@ -31,7 +38,7 @@ export default class Item {
     Object.assign(this.style, style)
   }
 
-  @action resetStyle () {
+  @action resetStyle() {
     this.style = {
       order: 0,
       flexGrow: 0,
